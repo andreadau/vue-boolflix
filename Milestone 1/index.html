@@ -9,30 +9,33 @@
 <body>
     
     <div id="app">
+        <!-- Header -->
         <header>
             <div class="container-header">
                 <div class="logo">
                     <img src="assets/img/boolflix.png" alt="">
                 </div>
                 <div class="search-bar">
-                    <input type="text">
+                    <input type="search" v-model="search" @keyup.enter="filmCall()" placeholder="Cerca un film">
+                    <button @click="filmCall()">Cerca</button>
                 </div>
             </div>
         </header>
+        <!-- /Header -->
+        <!-- Main -->
         <main>
-
-            <div class="card">
-                <div class="film">
-                    <h3 class="titolo"></h3>
-                    <h4 class="titolo-originale"></h4>
-                    <p class="lingua"></p>
-                    <p class="voto"></p>
+            <div class="films">
+                <div class="card" v-for="(film,index) in films">
+                    <div class="film">
+                        <h3 class="titolo">Titolo: {{film.title}}</h3>
+                        <h4 class="titolo-originale">Titolo Originale: {{film.original_title}}</h4>
+                        <p class="lingua">Lingua: {{film.original_language}}</p>
+                        <p class="voto">Voto: {{film.vote_average}}</p>
+                    </div>
                 </div>
             </div>
         </main>
-
-
-
+        <!-- /Main -->
     </div>
 
 
