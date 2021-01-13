@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+    crossorigin="anonymous" />
+    <title>Vue Boolflix</title>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <div class="container-header">
+                <div class="logo">
+                    <img src="assets/img/boolflix.png" alt="">
+                </div>
+                <div class="search-bar">
+                    <form @submit.prevent="filmCall() & seriesCall()">
+                        <input type="search" v-model="search" @keyup.enter="filmCall() & seriesCall()" placeholder="Cerca un Film  o una Serie Tv">
+                        <button type="submit">Cerca</button>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <!-- /Header -->
+        <!-- Main -->
+        <main>
+            <div class="films">
+                <div class="card" v-for="(film,index) in films">
+                    <div class="film">
+                        <h3 class="titolo">Titolo: {{film.title}}</h3>
+                        <h4 class="titolo-originale">Titolo Originale: {{film.original_title}}</h4>
+                        <p class="lingua">Lingua: {{film.original_language}}
+                            <img :src="flagGenerator(film.original_language)" alt="" class="flag">
+                        </p>
+                        <p class="voto">Voto: <i  v-for="(star,index) in 5" :class="starGenerator(film.vote_average,index)"></i></p>
+                    </div>
+                </div>
+            </div>
+            <div class="series">
+                <div class="card" v-for="(serie,index) in series">
+                    <div class="film">
+                        <h3 class="titolo">Titolo: {{serie.name}}</h3>
+                        <h4 class="titolo-originale">Titolo Originale: {{serie.original_name}}</h4>
+                        <p class="lingua">Lingua: {{serie.original_language}}
+                            <img :src="flagGenerator(serie.original_language)" alt="" class="flag">
+                        </p>
+                        <p class="voto">Voto: <i  v-for="(star,index) in 5" :class="starGenerator(serie.vote_average,index)"></i></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- /Main -->
+    </div>
+
+
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" 
+    integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" 
+    crossorigin="anonymous"></script>
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Js -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
