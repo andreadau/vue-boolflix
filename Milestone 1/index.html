@@ -35,7 +35,7 @@
                         <h3 class="titolo">Titolo: {{film.title}}</h3>
                         <h4 class="titolo-originale">Titolo Originale: {{film.original_title}}</h4>
                         <p class="lingua">Lingua: {{film.original_language}}</p>
-                        <p class="voto">Voto: {{film.vote_average}}</p>
+                        <p class="voto">Voto: <i  v-for="(star,index) in 5" :class="starGenerator(film.vote_average,index)"></i></p>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                         <h3 class="titolo">Titolo: {{serie.name}}</h3>
                         <h4 class="titolo-originale">Titolo Originale: {{serie.original_name}}</h4>
                         <p class="lingua">Lingua: {{serie.original_language}}</p>
-                        <p class="voto">Voto: {{serie.vote_average}}</p>
+                        <p class="voto">Voto: <i  v-for="(star,index) in 5" :class="starGenerator(serie.vote_average,index)"></i></p>
                     </div>
                 </div>
             </div>

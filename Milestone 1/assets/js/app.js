@@ -36,6 +36,13 @@ let vm = new Vue({
                 console.log(error);
             });
         },
+        starGenerator(vote,index){
+            if (Math.ceil(vote) / 2 > index){
+                return "fas fa-star"
+            } else {
+                return "far fa-star"
+            }
+        }
     },
     mounted(){
         this.filmCall();
