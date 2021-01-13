@@ -27,10 +27,14 @@
 /* /Header */
 /* Main */
 main {
-    width: 70%;
+    width: 90%;
     margin: auto;
 }
 .films {
+    display: flex;
+    flex-wrap: wrap;
+}
+.series {
     display: flex;
     flex-wrap: wrap;
 }

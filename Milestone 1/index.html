@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+    crossorigin="anonymous" />
     <title>Vue Boolflix</title>
 </head>
 <body>
@@ -16,8 +19,10 @@
                     <img src="assets/img/boolflix.png" alt="">
                 </div>
                 <div class="search-bar">
-                    <input type="search" v-model="search" @keyup.enter="filmCall()" placeholder="Cerca un film">
-                    <button @click="filmCall()">Cerca</button>
+                    <form @submit.prevent="filmCall() & seriesCall()">
+                        <input type="search" v-model="search" @keyup.enter="filmCall() & seriesCall()" placeholder="Cerca un Film  o una Serie Tv">
+                        <button type="submit">Cerca</button>
+                    </form>
                 </div>
             </div>
         </header>
@@ -31,6 +36,16 @@
                         <h4 class="titolo-originale">Titolo Originale: {{film.original_title}}</h4>
                         <p class="lingua">Lingua: {{film.original_language}}</p>
                         <p class="voto">Voto: {{film.vote_average}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="series">
+                <div class="card" v-for="(serie,index) in series">
+                    <div class="film">
+                        <h3 class="titolo">Titolo: {{serie.name}}</h3>
+                        <h4 class="titolo-originale">Titolo Originale: {{serie.original_name}}</h4>
+                        <p class="lingua">Lingua: {{serie.original_language}}</p>
+                        <p class="voto">Voto: {{serie.vote_average}}</p>
                     </div>
                 </div>
             </div>
