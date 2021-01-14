@@ -3,7 +3,8 @@ let vm = new Vue({
     data: {
         films: [],
         series: [],
-        search: ""
+        search: "",
+        imgStandard: "assets/img/nophoto.png"
     },
     methods: {
         filmCall(){
