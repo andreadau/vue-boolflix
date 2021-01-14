@@ -35,19 +35,27 @@ main {
 .films {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
 }
 .poster {
     width: 300px;
     height: 530px;
     background-size: cover;
+    position: absolute;
+}
+.poster:hover{
+    opacity: 0.2;
 }
 .series {
     display: flex;
     flex-wrap: wrap;
+    place-content: center;
 }
 .card {
     display: flex;
     width: 300px;
-    background-color: coral;
+    height: 530px;
     margin: 5px;
+    background-color: lightgray;
 }
