@@ -8,7 +8,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    background-color: #222222;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .logo img {
     width: 150px;
@@ -34,14 +36,18 @@ main {
     display: flex;
     flex-wrap: wrap;
 }
+.poster {
+    width: 300px;
+    height: 530px;
+    background-size: cover;
+}
 .series {
     display: flex;
     flex-wrap: wrap;
 }
 .card {
     display: flex;
-    width: 200px;
-    height: 400px;
+    width: 300px;
     background-color: coral;
     margin: 5px;
 }

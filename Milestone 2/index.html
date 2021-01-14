@@ -32,6 +32,7 @@
             <div class="films">
                 <div class="card" v-for="(film,index) in films">
                     <div class="film">
+                        <img class="poster" :src="film.poster_path === null ? imgStandard : `https://image.tmdb.org/t/p/w342/${film.poster_path}`" alt="">
                         <h3 class="titolo">Titolo: {{film.title}}</h3>
                         <h4 class="titolo-originale">Titolo Originale: {{film.original_title}}</h4>
                         <p class="lingua">Lingua: {{film.original_language}}
@@ -44,6 +45,7 @@
             <div class="series">
                 <div class="card" v-for="(serie,index) in series">
                     <div class="film">
+                        <img class="poster" :src="serie.poster_path === null ? imgStandard : `https://image.tmdb.org/t/p/w342/${serie.poster_path}`" alt="">
                         <h3 class="titolo">Titolo: {{serie.name}}</h3>
                         <h4 class="titolo-originale">Titolo Originale: {{serie.original_name}}</h4>
                         <p class="lingua">Lingua: {{serie.original_language}}
