@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
     crossorigin="anonymous" />
@@ -27,7 +29,7 @@
                 <div class="search-bar">
                     <form @submit.prevent="filmCall() & seriesCall()">
                         <input type="search" v-model="search" @keyup.enter="filmCall() & seriesCall()" placeholder="Cerca un Film  o una Serie Tv">
-                        <button type="submit">Cerca</button>
+                        <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
             </div>
@@ -38,24 +40,28 @@
             <div class="films">
                 <div class="card" v-for="(film,index) in films">
                     <div class="film">
+                        <img class="poster" :src="film.poster_path === null ? imgStandard : `https://image.tmdb.org/t/p/w342/${film.poster_path}`" alt="">
                         <h3 class="titolo">Titolo: {{film.title}}</h3>
                         <h4 class="titolo-originale">Titolo Originale: {{film.original_title}}</h4>
                         <p class="lingua">Lingua: {{film.original_language}}
                             <img :src="flagGenerator(film.original_language)" alt="" class="flag">
                         </p>
                         <p class="voto">Voto: <i  v-for="(star,index) in 5" :class="starGenerator(film.vote_average,index)"></i></p>
+                        <p class="overview">Overview: {{film.overview}}
                     </div>
                 </div>
             </div>
             <div class="series">
                 <div class="card" v-for="(serie,index) in series">
-                    <div class="film">
-                        <h3 class="titolo">Titolo: {{serie.name}}</h3>
-                        <h4 class="titolo-originale">Titolo Originale: {{serie.original_name}}</h4>
-                        <p class="lingua">Lingua: {{serie.original_language}}
+                    <div class="serie">
+                        <img class="poster" :src="serie.poster_path === null ? imgStandard : `https://image.tmdb.org/t/p/w342/${serie.poster_path}`" alt="">
+                        <h3 class="titolo pt-5 pl-5">Titolo: {{serie.name}}</h3>
+                        <h4 class="titolo-originale pt-5 pl-5">Titolo Originale: {{serie.original_name}}</h4>
+                        <p class="lingua pt-5 pl-5">Lingua: {{serie.original_language}}
                             <img :src="flagGenerator(serie.original_language)" alt="" class="flag">
                         </p>
-                        <p class="voto">Voto: <i  v-for="(star,index) in 5" :class="starGenerator(serie.vote_average,index)"></i></p>
+                        <p class="voto pt-5 pl-5">Voto: <i  v-for="(star,index) in 5" :class="starGenerator(serie.vote_average,index)"></i></p>
+                        <p class="overview pt-5 pl-5">Overview: {{serie.overview}}
                     </div>
                 </div>
             </div>
